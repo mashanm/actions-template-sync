@@ -209,7 +209,7 @@ function force_delete_files() {
   files_to_delete=$(git log --diff-filter D --pretty="format:" --name-only "${local_current_git_hash}"..HEAD | sed '/^$/d')
   warn "files to delete: ${files_to_delete}"
   if [[ -n "${files_to_delete}" ]]; then
-    echo "${files_to_delete}" | xargs rm
+    echo "${files_to_delete}" | xargs rm -rvf
   fi
 }
 
